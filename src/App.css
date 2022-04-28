@@ -1,6 +1,69 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Fredoka+One&display=swap');
+
+:root{
+  --orange:#FF7F3F;
+  --d-orange:#EA5C2B;
+  --l-yellow:#F9DF7A;
+  --yellow:#F6D860;
+  --d-yellow:#F6D860;
+  --green:#95CD41;
+  --d-green:#81B92D;
+  --red:#E73939;
+  --separate:#ECC424;
+  --title:'Comfortaa';
+  --display:'Fredoka One';
 }
+
+*{
+  font-family: var(--title);
+  background-color: var(--l-yellow);
+}
+
+/* .App {
+  text-align: center;
+} */
+
+.app{
+background-color: var(--l-yellow);
+height: 100vh;
+}
+
+.logo{
+  width: 40%;
+  margin: auto;
+}
+
+.route{
+  background-color: var(--orange);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  font-family: var(--title);
+  color: black;
+  font-weight: 700;
+  font-size: xx-large;
+  text-decoration: none;
+  margin: auto 2rem;
+}
+
+.welcome-menu{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-container{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+
+
+/* ================ */
 
 .App-logo {
   height: 40vmin;

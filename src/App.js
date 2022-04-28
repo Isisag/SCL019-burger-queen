@@ -2,19 +2,17 @@ import './App.css';
 import { Route, Routes, Link } from 'react-router-dom';
 import WaiterView from './components/WaiterView';
 import ChefView from './components/ChefView';
+import Welcome from './components/utilities/Welcome';
 
 function App() {
   return (
-    <>
-    <h1>Welcome to Burger Queen!</h1>
+    <div className='app'>
       <Routes>
-        <Route path='/mesero' element={<WaiterView />} />
-        <Route path='/cocinero' element={<ChefView />} />
+        <Route path='/mesa' element={<WaiterView />} />
+        <Route path='/cocina' element={<ChefView />} />
+        <Route path='/' element={<Welcome />}/>
       </Routes>
-      <Link to="/mesero"> Mesero </Link>
-      <Link to="/cocinero"> Cocinero </Link>
-      <Link to="/"> Volver </Link>
-    </>
+    </div>
   );
 }
 
