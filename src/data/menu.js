@@ -1,4 +1,4 @@
-{
+export default {
     "breakfast": [
         {
             "id": 1,
@@ -31,31 +31,31 @@
                 "protein": "Pollo"
             },
             {
-                "id": 2,
+                "id": 1,
                 "item": "Hamburguesa simple",
                 "price": 10,
                 "protein": "Vacuno"
             },
             {
-                "id": 3,
+                "id": 1,
                 "item": "Hamburguesa simple",
                 "price": 10,
                 "protein": "Veggie"
             },
             {
-                "id": 4,
+                "id": 2,
                 "item": "Hamburguesa doble",
                 "price": 15,
                 "protein": "Pollo"
             },
             {
-                "id": 5,
+                "id": 2,
                 "item": "Hamburguesa doble",
                 "price": 15,
                 "protein": "Vacuno"
             },
             {
-                "id": 6,
+                "id": 2,
                 "item": "Hamburguesa doble",
                 "price": 15,
                 "protein": "Veggie"
@@ -63,46 +63,46 @@
         ],
         [
             {
-                "id": 7,
+                "id": 1,
                 "item": "Papas fritas",
                 "price": 5
             },
             {
-                "id": 8,
+                "id": 2,
                 "item": "Aros de cebolla",
                 "price": 5
             }
         ],
         [
             {
-                "id": 9,
+                "id": 1,
                 "item": "Agua 500ml",
                 "price": 5
             },
             {
-                "id": 10,
+                "id": 2,
                 "item": "Agua 750ml",
                 "price": 7
             },
             {
-                "id": 11,
+                "id": 3,
                 "item": "Bebida 500ml",
                 "price": 7
             },
             {
-                "id": 12,
+                "id": 4,
                 "item": "Bebida 750ml",
                 "price": 10
             }
         ],
         [
             {
-                "id": 13,
+                "id": 1,
                 "item": "Huevo",
                 "price": 1
             },
             {
-                "id": 14,
+                "id": 2,
                 "item": "Queso",
                 "price": 1
             }

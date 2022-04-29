@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ChefView = () => {
+const Chef = () => {
   return (
     <>
     <div>ChefView</div>
@@ -10,4 +10,4 @@ const ChefView = () => {
   )
 }
 
-export default ChefView
+export default Chef

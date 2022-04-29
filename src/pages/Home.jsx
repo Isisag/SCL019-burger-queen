@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Routes, Link } from 'react-router-dom';
-import Logo from "../../assets/burger-queen-logo.svg"
+import Logo from "../assets/burger-queen-logo.svg"
 
 
-const Welcome = () => {
+const Home = () => {
   return (
     <div className='welcome-menu'>
      <div className='logo-container'>
@@ -15,4 +15,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome
+export default Home
