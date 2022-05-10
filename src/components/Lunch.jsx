@@ -12,7 +12,7 @@ const Lunch = ({burgers, getItem}) => {
                 return(
                         <button key={item.id}
                         className="menu-item"
-                        onClick={() => {getItem(item.item)}}
+                        onClick={() => {getItem(item)}}
                         > 
                         <h2>{item.item}</h2>
                         <h3>{item.protein}</h3>

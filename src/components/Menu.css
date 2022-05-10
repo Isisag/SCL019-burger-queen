@@ -182,9 +182,9 @@
   }
 
   .count-order{
-    height: 60vh;
+    height: 55vh;
     margin: 1rem auto;
-    overflow-x: scroll;
+    overflow-y: scroll;
   }
 
   .count-total{
@@ -192,6 +192,26 @@
   }
 
   .count-item{
-    background-color: #81B92D;
+    display: flex;
+    margin: auto;
+    /* justify-content: space-around; */
   }
   
+  .count-item > hr{
+    border: .5px solid var(--separate);
+  }
+  
+  .order-icon{
+    width: 3vh;
+  }
+
+  .order-button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    justify-self: flex-end;
+}
+
+.count-item > h3{
+  margin: auto .5rem;
+}

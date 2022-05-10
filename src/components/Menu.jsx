@@ -23,13 +23,13 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
     }
 
     const getItem = (item) => {
-      console.log(typeof(item))
+      // console.log(typeof(item))
       setOrder(
         (currentOrder)=> {
            return[...currentOrder, item]
         }
       )
-      console.log(item)
+      // console.log(item)
   }
 
   const handdleData = (childData) =>{
@@ -75,7 +75,7 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
         <div  className={toggleState === 4 ? "content  active-content" : "content"}>
             <Drinks drinks={drinks} getItem={getItem}/>
         </div>
-      <Count items={getItem} handdleData={handdleData} order={order} elemento={elemento} />
+      <Count items={getItem} handdleData={handdleData} order={order} setOrder={setOrder}  />
       
         
     </div>
@@ -90,6 +90,5 @@ export default Menu
 // trabajr con hooks en vez de props 
 // ciclo de vida del componente pero con hooks => use Effect 
 // menu se setea como array 
-
 // comunicar vistas atraves de firebase cloud
 // 
