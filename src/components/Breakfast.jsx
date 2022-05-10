@@ -5,23 +5,25 @@ import './Menu.css';
 // import menu from "../menu.json"
 
 
-const Breakfast = ({breakfast}) => {
+const Breakfast = ({breakfast, getItem}) => {
+
+
   return (
-    <div>
-        <ul>
+    <div className='item-container'>
         {
             breakfast.map((item)=>{
                 return(
                     <button key={item.id}
                     className="menu-item"
+                    onClick={() => {getItem(item)}}
+                    value={item.item}
                     > 
                     <h2>{item.item}</h2>
-                    <h2>{`${item.price} $`}</h2>
+                    <h1>{`${item.price} $`}</h1>
                     </button>
                 )
             })
         }
-        </ul>
     </div>
   )
 }

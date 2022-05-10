@@ -5,22 +5,18 @@ import './Menu.css';
 const SideDish = ({sideDish}) => {
     
       return (
-        <div>
-            <ul>
+        <div className="item-container">
                 {
                     sideDish.map((item)=>{
                         return(
                             <button key={item.id}
-                            className="menu-item"
-                            > 
+                            className="menu-item"> 
                                 <h2>{item.item}</h2>
-                                {item.protein}
-                                <h2>{`${item.price} $`}</h2>
+                                <h1>{`${item.price} $`}</h1>
                             </button>
                         )
                     })
                 }
-            </ul>
         </div>
       )
     }

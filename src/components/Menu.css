@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
 
 :root{
   --orange:#FF7F3F;
@@ -10,62 +15,105 @@
   --d-green:#81B92D;
   --red:#E73939;
   --separate:#ECC424;
-  --title:'Comfortaa';
+  --title:'Rubik', sans-serif;
   --display:'Fredoka One';
-  --border: 10px 10px 0px 0px;
+  --border: 0px 10px 0px 0px;
+  --border-invert: 0px 0px 10px 0px;
+}
+
+.menu-content{
+  /* display: grid;
+  grid-template-columns: 10rem , 10rem;
+  grid-template-rows: repeat(3, 6rem );
+  /* justify-content: start; */
+  /* align-items: center; */
+  /* box-sizing: content-box;  */
 }
 
 .menu-item{
-    background-color: var(--d-orange);
+    background-color: var(--orange);
     padding: 1rem;
-    margin: 1rem;
+    margin: .5rem;
     outline: none;
     border: none;
-    border-radius: 10px;
-    width: 15rem;
+    border-radius: 5px;
+    width: 10rem;
+    cursor: pointer;
+    height: fit-content;
+    transition: ease-in .2s ;
+}
+
+.menu-item:hover{
+  transform: scale(1.09);
+}
+
+  .menu-item:active{
+    background-color: var(--d-orange);
+  }
+
+  .menu-item > h3{
+    text-align: left;
   }
   
   .menu-item > h2{
     margin: 0rem;
-    text-align: right;
+    text-align: left;
   }
-  
+
+  .menu-item > h1{
+    margin: .3rem 0rem;
+    text-align: right;
+    font-weight: 700;
+  }
+
   .menu-container{
     display: flex;
+    /* justify-content: start; */
+    /* align-items: center; */
+    box-sizing: content-box;
+
+  }
+  
+  .item-container{
+    /* display: flex;  */
+    /* flex-wrap: wrap; */
+    /* width: 80%; */
+    /* width: fit-content; */
   }
   
   .side-menu{
     background-color: var(--green);
-    max-width: 25vh;
+    max-width: 15vh;
+    height: max-content;
     border-radius: var(--border);
   }
   
   .side-menu-icon{
-    width: 10vh;
+    width: 5vh;
   }
   
   .side-menu-text{
     width: 100%;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 1rem;
   }
-  
+
   .tabs {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  
-    padding: 15px;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* flex-wrap: wrap; */
+    padding: 10px;
     text-align: center;
     width: 100%;
-    height: 15vh;
+    height: 18vh;
     background: var(--green);
     cursor: pointer;
     border-bottom: 1px solid rgba(0, 0, 0, 0.274);
     box-sizing: content-box;
-    /* position: relative; */
     outline: none;
     border: none;
     margin: 0rem auto;
+    position: relative;
   }
   
   .tabs:nth-child(1){
@@ -74,24 +122,76 @@
   .active-tabs:nth-child(1){
     border-radius: var(--border);
   }
+  .tabs:nth-child(4){
+    border-radius: var(--border-invert);
+  }
+  .active-tabs:nth-child(4){
+    border-radius: var(--border-invert);
+  }
   
   .content {
-    /* padding: .5rem; */
-    /* margin: 0rem 1rem; */
-    /* width: 50%;  */
-    /* height: 100%; */
+    width: 45%;
     display: none;
   }
   
   .active-content {
-    /* display: block; */
     display: flex;
     background-color: transparent;
-    /* padding: .5rem; */
+    margin: 0rem 2rem;
   }
   
   .active-tabs  {
     background: var(--d-green);
     border-bottom: 1px solid transparent;
+  }
+
+  .count-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--d-yellow);
+    margin: 0rem 2rem;
+    width: 30rem;
+    /* position: relative; */
+  }
+
+  .count-total{
+    align-self: flex-end;
+    display: inline-block;
+    /* flex-wrap: nowrap; */
+  }
+
+  .count-client, .count-order, .count-total{
+    width: 100%;
+  }
+  
+  .count-client{
+   height: vh;
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   flex-wrap: wrap;
+   margin: 0rem auto .5rem auto;
+   padding: 1rem 0rem;
+   background-color: var(--d-orange);
+  }
+
+  .count-client > label{
+    width: 100%;
+    font-weight: 500;
+  }
+
+  .count-order{
+    height: 60vh;
+    margin: 1rem auto;
+    overflow-x: scroll;
+  }
+
+  .count-total{
+   margin: 1rem auto;
+  }
+
+  .count-item{
+    background-color: #81B92D;
   }
   

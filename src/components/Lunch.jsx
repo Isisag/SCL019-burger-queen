@@ -3,32 +3,24 @@ import './Menu.css';
 
 
 
-const Lunch = ({burgers}) => {
-
-// const aditional = menu.lunch[3]
+const Lunch = ({burgers, getItem}) => {
 
   return (
-    <div>
-        <ul>
+    <div className='item-container'>
         {
             burgers.map((item)=>{
                 return(
-                    <>
                         <button key={item.id}
                         className="menu-item"
-                        onClick={console.log('a')}
+                        onClick={() => {getItem(item.item)}}
                         > 
                         <h2>{item.item}</h2>
-                        {item.protein}
-                        <h2>{`${item.price} $`}</h2>
+                        <h3>{item.protein}</h3>
+                        <h1>{`${item.price} $`}</h1>
                         </button>
-                    </>
-                    
                 )
             })
         }
-        </ul>
-        
     </div>
   )
 }
