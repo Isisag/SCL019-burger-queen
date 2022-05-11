@@ -6,10 +6,8 @@ import minus from "../assets/minus.svg"
 import check from "../assets/check.svg"
 
 
-const Count = ({ handdleData, order, setOrder}) => {
+const Count = ({ order, setOrder}) => {
 
-  const {breakfast, sideDish, burgers, drinks, menuChoose, setMenuChoose} = useContext(MenuContext)
-  
   const [itemPrice, setItemPrice] = useState();
 
   const handdlePrice=()=> {
@@ -41,14 +39,16 @@ const Count = ({ handdleData, order, setOrder}) => {
                       return(
                           <div key={index}>
                             <div className='count-item' id={index}>
-                            <hr /> 
-                                <p>1</p>
-                                <h3>{item.item}</h3>
-                                <h3>{`${item.price}$`}</h3>
-                            <button className='order-button'
-                            onClick={ () => removeItem(index) }
-                            ><img src={cancel} alt="cancel-icon" className='order-icon'/></button>
+                                <span className=''> 1 </span>
+                                <h3 className='count-item-info info'>{item.item}</h3>
+                                <h3 className='count-item-info info'>{item.protein}</h3>
+                                <h3 className='count-item-info info'>{`${item.price}$`}</h3>
+                            <button className='order-remove-button' onClick={() => removeItem(index)}>
+                                {/* <img src={cancel} alt="cancel-icon" className='order-icon'/> */}
+                                <p className='remove'> x </p>
+                            </button>
                             </div>
+                            <hr className='separate'/> 
                             {/* <CountItem item={item}/> */}
                           </div>
                       )
@@ -56,9 +56,11 @@ const Count = ({ handdleData, order, setOrder}) => {
               }
         </div>
         <div className='count-total'>
-            <h3>Total</h3>
-            <h3>$ 0.00</h3>
-            <button>Enviar a Cocina</button>
+            <div className='count-total-sum'>
+                <h3>Total</h3>
+                <h3>$ 0.00</h3>
+            </div>
+            <button className='send-order-button'>Enviar a Cocina</button>
         </div>
     </div>
   )

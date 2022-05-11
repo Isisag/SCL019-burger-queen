@@ -166,7 +166,6 @@
   }
   
   .count-client{
-   height: vh;
    display: flex;
    justify-content: center;
    text-align: center;
@@ -182,36 +181,90 @@
   }
 
   .count-order{
-    height: 55vh;
-    margin: 1rem auto;
+    height: 50vh;
+    margin: auto;
     overflow-y: scroll;
+    padding: 0rem 1rem;
   }
 
   .count-total{
    margin: 1rem auto;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+  }
+
+  .send-order-button{
+    padding: 1rem;
+    background-color: var(--d-orange);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .count-total-sum{
+    background-color: var(--orange);
+    width: 100%;
   }
 
   .count-item{
     display: flex;
+    flex-wrap: wrap;
     margin: auto;
-    /* justify-content: space-around; */
+    height: 6vh;
+    justify-content: space-between;
+    padding: 1rem 0rem;
   }
-  
-  .count-item > hr{
+
+  .count-item-info:nth-child(2){
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .count-item-info{
+    font-size: 15px;
+  }
+
+  .separate{
     border: .5px solid var(--separate);
+    width: 100%;
+    height: 0px;
   }
   
   .order-icon{
-    width: 3vh;
+    width: 2vh;
   }
 
-  .order-button{
+  .order-remove-button{
     background-color: transparent;
     outline: none;
     border: none;
-    justify-self: flex-end;
+    display: flex;
+    /* justify-self: flex-end; */
+    /* position: absolute; */
+    /* right: 0; */
+    /* margin: 0rem 5rem 0rem 1rem; */
+    /* left: 0; */
+    cursor: pointer;
+}
+
+.remove{
+  color: black;
+  background-color: var(--red);
+  border-radius: 50%;
+  padding: .2rem .5rem;
+  text-align: center;
+}
+
+.order-cant{
+  /* display: flex;
+  justify-self: flex-end;
+  position: absolute;
+  right: 0;
+  margin: 0rem 8rem 0rem 1rem; */
 }
 
 .count-item > h3{
   margin: auto .5rem;
 }
+

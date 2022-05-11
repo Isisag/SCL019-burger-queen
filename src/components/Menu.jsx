@@ -77,7 +77,6 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
         </div>
       <Count items={getItem} handdleData={handdleData} order={order} setOrder={setOrder}  />
       
-        
     </div>
   )
 }
