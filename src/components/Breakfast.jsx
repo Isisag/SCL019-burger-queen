@@ -5,11 +5,12 @@ import './Menu.css';
 // import menu from "../menu.json"
 
 
-const Breakfast = ({breakfast, getItem}) => {
+const Breakfast = ({breakfast, getItem, data}) => {
 
 
   return (
     <div className='item-container'>
+      <h1>{data}</h1>
         {
             breakfast.map((item)=>{
                 return(

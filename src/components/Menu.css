@@ -5,22 +5,6 @@
   padding: 0;
 }
 
-:root{
-  --orange:#FF7F3F;
-  --d-orange:#EA5C2B;
-  --l-yellow:#F9DF7A;
-  --yellow:#F6D860;
-  --d-yellow:#F6D860;
-  --green:#95CD41;
-  --d-green:#81B92D;
-  --red:#E73939;
-  --separate:#ECC424;
-  --title:'Rubik', sans-serif;
-  --display:'Fredoka One';
-  --border: 0px 10px 0px 0px;
-  --border-invert: 0px 0px 10px 0px;
-}
-
 .menu-content{
   /* display: grid;
   grid-template-columns: 10rem , 10rem;
@@ -40,16 +24,13 @@
     width: 10rem;
     cursor: pointer;
     height: fit-content;
-    transition: ease-in .2s ;
+    transition: ease-in .2s;
 }
 
 .menu-item:hover{
-  transform: scale(1.09);
+  transform: scale(1.02);
+  background-color: var(--d-orange);
 }
-
-  .menu-item:active{
-    background-color: var(--d-orange);
-  }
 
   .menu-item > h3{
     text-align: left;
@@ -68,8 +49,6 @@
 
   .menu-container{
     display: flex;
-    /* justify-content: start; */
-    /* align-items: center; */
     box-sizing: content-box;
 
   }
@@ -108,7 +87,7 @@
     height: 18vh;
     background: var(--green);
     cursor: pointer;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+    border-bottom: 1px solid rgba(2, 2, 2, 0.274);
     box-sizing: content-box;
     outline: none;
     border: none;
@@ -180,11 +159,39 @@
     font-weight: 500;
   }
 
+  .count-client-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 3vh;
+    margin: 0rem .3rem;
+    border-radius: 50%;
+  }
+  
+  .count-client-btn > img:active{
+    transform: scale(1.10);
+  }
+  
+  .count-client-btn > img{
+    width: 3vh;
+    transition: .2s ease-in-out;
+    border-radius: 50%;
+  }
+  
+  .count-input-client{
+    border: none;
+    outline: none;
+    /* background-color: blue; */
+  }
+
   .count-order{
-    height: 50vh;
+    height: 40vh;
     margin: auto;
     overflow-y: scroll;
-    padding: 0rem 1rem;
+    padding: 0rem .5rem;
   }
 
   .count-total{
@@ -195,11 +202,16 @@
   }
 
   .send-order-button{
-    padding: 1rem;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+    width: max-content;
+    font-size: 20px;
+    font-weight: 600;
     background-color: var(--d-orange);
     outline: none;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
   }
 
   .count-total-sum{
@@ -208,12 +220,15 @@
   }
 
   .count-item{
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    height: 6vh;
-    justify-content: space-between;
-    padding: 1rem 0rem;
+    display: grid;
+    grid-template-columns: .7fr 1.8fr .5fr .2fr .2fr;
+    height: 8vh;
+    align-items: center;
+  }
+
+  .info{
+    font-size: 15px;
+    text-align: center;
   }
 
   .count-item-info:nth-child(2){
@@ -225,8 +240,30 @@
     font-size: 15px;
   }
 
+  .count-item > h3{
+    margin: auto .5rem;
+  }
+
+  .count-noitems{
+      display: flex;
+      justify-content: center;
+  }
+
+  .count-noitems > p {
+    text-align: center;
+    margin: auto 1rem;
+    font-size: 15px;
+    font-weight: 600;
+    width: 70%;
+  }
+
+  .quantity{
+    display: grid;
+    grid-template-columns: .2fr .3fr .2fr;
+  }
+
   .separate{
-    border: .5px solid var(--separate);
+    border: .2px solid var(--separate);
     width: 100%;
     height: 0px;
   }
@@ -235,36 +272,31 @@
     width: 2vh;
   }
 
-  .order-remove-button{
+   /* REVISAR */
+
+  .order-remove-button,.count-order-btn{
     background-color: transparent;
     outline: none;
     border: none;
     display: flex;
-    /* justify-self: flex-end; */
-    /* position: absolute; */
-    /* right: 0; */
-    /* margin: 0rem 5rem 0rem 1rem; */
-    /* left: 0; */
+    justify-content: center;
+    align-content: center;
     cursor: pointer;
 }
 
-.remove{
-  color: black;
-  background-color: var(--red);
-  border-radius: 50%;
-  padding: .2rem .5rem;
-  text-align: center;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.order-cant{
-  /* display: flex;
-  justify-self: flex-end;
-  position: absolute;
-  right: 0;
-  margin: 0rem 8rem 0rem 1rem; */
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--d-yellow);
+  border-radius: 10px;
 }
 
-.count-item > h3{
-  margin: auto .5rem;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--d-orange);
+  border-radius: 5px;
 }
-

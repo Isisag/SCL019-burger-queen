@@ -71,6 +71,21 @@
                 "id": 12,
                 "item": "Aros de cebolla",
                 "price": 5
+            },
+            {
+                "id": 11,
+                "item": "Empanadas de queso",
+                "price": 7
+            },
+            {
+                "id": 12,
+                "item": "Nuggets de Pollo",
+                "price": 5
+            },
+            {
+                "id": 12,
+                "item": "Nuggets de Seitan",
+                "price": 5
             }
         ],
         [

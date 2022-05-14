@@ -34,6 +34,7 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
 
   const handdleData = (childData) =>{
       setData(childData)
+      console.log(data)
   }
 
    
@@ -64,7 +65,7 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
     </div>
   
         <div  className={toggleState === 1 ? "content  active-content" : "content"}>
-            <Breakfast breakfast={breakfast} getItem={getItem}/>
+            <Breakfast breakfast={breakfast} getItem={getItem} data={data}/>
         </div>
         <div  className={toggleState === 2 ? "content  active-content" : "content"}>
             <Lunch burgers={burgers} getItem={getItem}/>
