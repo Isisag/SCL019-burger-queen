@@ -6,7 +6,7 @@ import "../App.css"
 
 const Waiter = () => {
   
-  const {breakfast, burgers, sideDish, drinks, menuChoose, setMenuChoose, allMenu } = useContext(MenuContext)
+  const {breakfast, burgers, sideDish, drinks, allMenu } = useContext(MenuContext)
   // ciclo de vida con hooks 
 
   return (
@@ -17,7 +17,6 @@ const Waiter = () => {
         burgers={burgers}
         sideDish={sideDish}
         drinks={drinks}
-        allMenu={allMenu}
       />
     </div> 
   )

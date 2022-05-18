@@ -27,7 +27,7 @@
     transition: ease-in .2s;
 }
 
-.menu-item:hover{
+.menu-item:active{
   transform: scale(1.02);
   background-color: var(--d-orange);
 }
@@ -152,6 +152,7 @@
    margin: 0rem auto .5rem auto;
    padding: 1rem 0rem;
    background-color: var(--d-orange);
+   border-radius: var(--border);
   }
 
   .count-client > label{
@@ -204,7 +205,8 @@
   .send-order-button{
     padding: 1rem 2rem;
     margin: 1rem auto;
-    width: max-content;
+    width: 30vh;
+    height: max-content;
     font-size: 20px;
     font-weight: 600;
     background-color: var(--d-orange);
@@ -212,6 +214,11 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 200ms , box-shadow 200ms;
+  }
+
+  .send-order-button-active{
+    background-color: var(--d-green);
   }
 
   .count-total-sum{
@@ -221,7 +228,7 @@
 
   .count-item{
     display: grid;
-    grid-template-columns: .7fr 1.8fr .5fr .2fr .2fr;
+    grid-template-columns: 1.2fr 1.8fr .7fr .2fr;
     height: 8vh;
     align-items: center;
   }
@@ -259,7 +266,8 @@
 
   .quantity{
     display: grid;
-    grid-template-columns: .2fr .3fr .2fr;
+    grid-template-columns: .2fr .2fr .2fr .4fr .1fr  ;
+    /* grid-template-columns: .2fr .3fr .2fr .4fr .1fr  ; */
   }
 
   .separate{
@@ -272,8 +280,6 @@
     width: 2vh;
   }
 
-   /* REVISAR */
-
   .order-remove-button,.count-order-btn{
     background-color: transparent;
     outline: none;
@@ -283,6 +289,7 @@
     align-content: center;
     cursor: pointer;
 }
+
 
 /* width */
 ::-webkit-scrollbar {

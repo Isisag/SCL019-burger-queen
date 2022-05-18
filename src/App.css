@@ -10,9 +10,11 @@
   --d-green:#81B92D;
   --red:#E73939;
   --separate:#ECC424;
+  --d-separate:#c49e0a;
   --title:'Rubik', sans-serif;
   --display:'Fredoka One';
   --border: 10px 10px 0px 0px;
+  --shadow: #a53c1aa9;
 }
 
 .hidden{
@@ -48,6 +50,13 @@ height: 100vh;
   font-size: xx-large;
   text-decoration: none;
   margin: auto 2rem;
+  transition: transform 200ms , box-shadow 200ms;
+  box-shadow: var(--shadow) 4px 4px 0px;
+}
+
+.route:hover{
+  transform: translateY(4px) translateX(4px);
+  box-shadow: var(--d-green) 0px 0px 0px;
 }
 
 .welcome-menu{

@@ -23,7 +23,6 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
     }
 
     const getItem = (item) => {
-      // console.log(typeof(item))
       setOrder(
         (currentOrder)=> {
            return[...currentOrder, item]
@@ -76,7 +75,7 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
         <div  className={toggleState === 4 ? "content  active-content" : "content"}>
             <Drinks drinks={drinks} getItem={getItem}/>
         </div>
-      <Count items={getItem} handdleData={handdleData} order={order} setOrder={setOrder}  />
+      <Count order={order} setOrder={setOrder}  />
       
     </div>
   )
