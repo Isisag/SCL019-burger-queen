@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Breakfast from './Breakfast';
 import Lunch from './Lunch';
 import SideDish from "./SideDish"
@@ -10,8 +10,8 @@ import plate from "../assets/fork-plate.svg"
 import bread from "../assets/bread.svg"
 import './Menu.css';
 
-
 const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
+
 
     const [data, setData] = useState()
     const [order, setOrder] = useState([])
@@ -28,7 +28,6 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
            return[...currentOrder, item]
         }
       )
-      // console.log(item)
   }
 
   const handdleData = (childData) =>{
@@ -75,7 +74,7 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
         <div  className={toggleState === 4 ? "content  active-content" : "content"}>
             <Drinks drinks={drinks} getItem={getItem}/>
         </div>
-      <Count order={order} setOrder={setOrder}  />
+      <Count order={order} setOrder={setOrder}/>
       
     </div>
   )

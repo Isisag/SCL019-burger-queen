@@ -4,14 +4,14 @@ import './Menu.css';
 import Quantity from './Quantity';
 import check from "../assets/check.svg"
 import CancelBtn from './utilities/CancelBtn';
-import SendBtn from './utilities/SendBtn';
-
-
 
 const Count = ({ order, setOrder}) => {
 
+    const { createOrder } = useContext(MenuContext)
     const [value, setValue] = useState()
     const [quantity, setQuantity] = useState()
+    const [isToggleOn, setIsToggleOn] = useState(true)
+
     let total;
 
     //* Elimina duplicados de la orden!
@@ -28,6 +28,13 @@ const Count = ({ order, setOrder}) => {
     const handdleInput = (e) => {
         setValue(e.target.value)
         console.log(e.target.value)
+    }
+
+     const handleClick = () =>{
+        createOrder(value,order)
+        setIsToggleOn(!isToggleOn)
+        // setOrder([])
+        setValue('')
     }
 
     const getQuantity = (cant) => {
@@ -59,14 +66,13 @@ const Count = ({ order, setOrder}) => {
                       return(
                           <div key={index}>
                             <div className='count-item' id={index}>
-                                    <Quantity getQuantity={getQuantity} setQuantity={setQuantity} price={item.price} getTotalPrice={getTotalPrice} />
+                                    <Quantity getQuantity={getQuantity} setQuantity={setQuantity} price={item.price} getTotalPrice={getTotalPrice} quantity={quantity} order={order} setOrder={setOrder} />
                                     <h3 className='count-item-info info'>{item.item}</h3>
                                     {console.log(item.item)}
                                     <h3 className='count-item-info info'>{item.protein}</h3>
                                     {/* {!isNaN(quantity) 
                                     ? <h3 className='count-item-info info'> $ {(Number(item.price)*Number(quantity))} </h3> 
-                                    : 'a'  }  */}
-                                   
+                                    : 'a'  }  */}    
                                 <button className='order-remove-button' onClick={() => removeItem(index)}>
                                     <CancelBtn />
                                 </button>
@@ -86,7 +92,12 @@ const Count = ({ order, setOrder}) => {
                 <h3> <b>Total</b> $ {total = (order.reduce((previousValue, currentValue) => previousValue + currentValue.price,0))},00
                 </h3>                
             </div>
-            < SendBtn />
+
+            {/* <h3>----cantidad{quantity*total}</h3> */}
+            <button className={isToggleOn ? 'send-order-button' : 'send-order-button send-order-button-active' }
+                    onClick={handleClick}>
+              {isToggleOn ? 'Enviar a Cocina' : 'Enviado'}
+            </button>
         </div>
     </div>
   )

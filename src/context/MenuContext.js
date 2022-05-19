@@ -1,43 +1,58 @@
-import React,{ createContext, useState, useEffect } from "react";
-import menu from "../data/menu.json"
+import React, { createContext, useState, useEffect } from "react";
+import menu from "../data/menu.json";
 import { db } from "../firebase/firebase";
-import { addDoc, collection } from "firebase/firestore";
-// import { getFirestore, collection } from "firebase/firestore"
+import {
+  addDoc,
+  collection,
+  Timestamp,
+  getDocs,
+  query,
+  orderBy, 
+  deleteDoc,
+  doc
+} from "firebase/firestore";
 
+export const MenuContext = createContext();
 
-export const MenuContext = createContext()
+const MenuContextProvider = ({ children }) => {
+  const createOrder = async (client, items) => {
+    const orders = await addDoc(collection(db, "orders"), {
+      client: client,
+      items: items,
+      date: Timestamp.fromDate(new Date()),
+      status: "cocina",
+    });
+    return orders
+  };
 
-const MenuContextProvider = ({children}) =>{
+  const getOrders = async () => {
+    const querySnapshot = await getDocs(query(collection(db, "orders")),orderBy("date", "desc"));
+    const arr = [];
+    querySnapshot.forEach(order => arr.push(Object.assign(order.data(), { 'id': order.id })))
+    return arr;
+  };
 
-    const createPost = (title) => {
-      addDoc(collection(db, 'orders'),{
-        title
-      })
-    }
+  const deleteOrder = id => deleteDoc(doc(db, 'orders', id))
 
-    const [breakfast, setBreakfast] = useState([])
-    const [burgers, setBurgers] = useState([])
-    const [sideDish, setSideDish] = useState([])
-    const [drinks, setDrinks] = useState([])
+  const [breakfast, setBreakfast] = useState([]);
+  const [burgers, setBurgers] = useState([]);
+  const [sideDish, setSideDish] = useState([]);
+  const [drinks, setDrinks] = useState([]);
 
-    
-    const handleButton = () => {
-      return console.log('si !')
-    }
+  useEffect(() => {
+    setBreakfast(menu.breakfast);
+    setBurgers(menu.lunch[0]);
+    setSideDish(menu.lunch[1]);
+    setDrinks(menu.lunch[2]);
+  }, []);
 
-    useEffect(() => {
-      setBreakfast(menu.breakfast)
-      setBurgers(menu.lunch[0])
-      setSideDish(menu.lunch[1])
-      setDrinks(menu.lunch[2])
-    }, [])
-    
-
-    return(
-        <MenuContext.Provider value={{breakfast, burgers, sideDish, drinks  }} >
-                {children}
-        </MenuContext.Provider>
-    )
-}
+  return (
+    <MenuContext.Provider
+      value={{ breakfast, burgers, sideDish, drinks, createOrder, getOrders, deleteOrder }}
+    >
+      {children}
+    </MenuContext.Provider>
+  );
+};
 
 export default MenuContextProvider;

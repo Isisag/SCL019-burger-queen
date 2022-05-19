@@ -3,34 +3,32 @@ import AddBtn from "./utilities/AddBtn";
 import MinBtn from "./utilities/MinBtn";
 import "./Menu.css";
 
-const Quantity = ({ getQuantity, setQuantity, price, getTotalPrice}) => {
+const Quantity = ({ getQuantity, setQuantity, price, getTotalPrice, quantity}) => {
 
   const [cant, setCant] = useState(1);
   const [totalPrice , setTotalPrice] = useState([])
 
   const sumItems = () => {
     setCant(cant + 1);
-    // setQuantity(cant)
   };
 
   const resItems = () => {
     cant <= 1 ? setCant(1) : setCant(cant - 1);
-    // setQuantity(cant)
   };
 
   useEffect(() => {
 
-    setQuantity(cant)
+    // setQuantity(cant)
     setTotalPrice(price*cant)
     console.log(totalPrice)
     // getTotalPrice(cant)
     getTotalPrice(totalPrice)
-    
-    // setTotalPrice(
-    //   (total)=> {
-    //     return[...total, cant*price]
-    //   }
-    // )
+    // getQuantity(cant)
+
+    const total = [];
+    // setQuantity([...total, cant])
+    setQuantity(cant)
+    console.log(quantity)
 
   }, [cant]);
 
@@ -45,7 +43,6 @@ const Quantity = ({ getQuantity, setQuantity, price, getTotalPrice}) => {
       </button>
       <span className="info">{totalPrice}</span>
       <span className="info">$</span>
-      {/* <span className="info"> {cant*price} $ </span> */}
     </div>
   );
 };

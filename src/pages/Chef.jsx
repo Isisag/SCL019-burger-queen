@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Orders from '../components/Orders'
 import BackBtn from '../components/utilities/BackBtn'
 
 const Chef = () => {
   return (
     <>
-    <div>ChefView</div>
     <BackBtn />
+    <Orders />
     </>
   )
 }

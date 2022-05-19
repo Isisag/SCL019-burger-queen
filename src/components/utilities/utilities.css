@@ -9,12 +9,12 @@
 }
 
 .min-btn{
-  fill: var(--separate);
+  fill: var(--orange);
   transition: .2s ease-in-out;
 }
 
 .min-btn:active{
-    fill: var(--d-separate);
+    fill: var(--d-orange);
 }
 .add-btn:active{
   fill: green;
@@ -26,10 +26,14 @@
 .btn_{
     width: 1.12rem;
     height: 1.12rem;
+    margin: 0;
+    border-radius: 100%;
 }
 
 .btn{
     width: 1.2rem;
     height: 1.2rem;
+    margin: 0;
+    border-radius: 100%;
 }
 
