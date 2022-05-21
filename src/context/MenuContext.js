@@ -9,16 +9,18 @@ import {
   query,
   orderBy, 
   deleteDoc,
-  doc
+  doc,
+  updateDoc
 } from "firebase/firestore";
 
 export const MenuContext = createContext();
 
 const MenuContextProvider = ({ children }) => {
-  const createOrder = async (client, items) => {
+  const createOrder = async (client, items, table) => {
     const orders = await addDoc(collection(db, "orders"), {
       client: client,
       items: items,
+      table: table,
       date: Timestamp.fromDate(new Date()),
       status: "cocina",
     });
@@ -34,6 +36,13 @@ const MenuContextProvider = ({ children }) => {
 
   const deleteOrder = id => deleteDoc(doc(db, 'orders', id))
 
+  const updateOrder = async (id, status) => {
+    const orderDoc = doc(db, "orders", id);
+    const statusUpdate = { status: "Listo para servir" };
+    await updateDoc(orderDoc, statusUpdate);
+    console.log(statusUpdate);
+  };
+
   const [breakfast, setBreakfast] = useState([]);
   const [burgers, setBurgers] = useState([]);
   const [sideDish, setSideDish] = useState([]);
@@ -48,7 +57,7 @@ const MenuContextProvider = ({ children }) => {
 
   return (
     <MenuContext.Provider
-      value={{ breakfast, burgers, sideDish, drinks, createOrder, getOrders, deleteOrder }}
+      value={{ breakfast, burgers, sideDish, drinks, createOrder, getOrders, deleteOrder, updateOrder }}
     >
       {children}
     </MenuContext.Provider>

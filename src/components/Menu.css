@@ -50,7 +50,6 @@
   .menu-container{
     display: flex;
     box-sizing: content-box;
-
   }
   
   .item-container{
@@ -266,7 +265,7 @@
 
   .quantity{
     display: grid;
-    grid-template-columns: .2fr .2fr .2fr .4fr .1fr  ;
+    grid-template-columns: .2fr .2fr .2fr .2fr .06fr  ;
     /* grid-template-columns: .2fr .3fr .2fr .4fr .1fr  ; */
   }
 
