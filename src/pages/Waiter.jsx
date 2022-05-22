@@ -8,10 +8,10 @@ const Waiter = () => {
   
   const {breakfast, burgers, sideDish, drinks, allMenu } = useContext(MenuContext)
   // ciclo de vida con hooks 
-
   return (
     <div>
       <BackBtn />
+      <h1 className='title'>Mesas</h1>
       <Menu 
         breakfast={breakfast}
         burgers={burgers}

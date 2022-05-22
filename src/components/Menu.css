@@ -20,7 +20,7 @@
     margin: .5rem;
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--border-all);
     width: 10rem;
     cursor: pointer;
     height: fit-content;
@@ -130,17 +130,29 @@
     background-color: var(--d-yellow);
     margin: 0rem 2rem;
     width: 30rem;
-    /* position: relative; */
   }
 
   .count-total{
-    align-self: flex-end;
-    display: inline-block;
-    /* flex-wrap: nowrap; */
+    display: flex;
+    justify-content: center;
+  }
+
+  count-total-info{
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr 1fr;
+    padding: 1rem;
   }
 
   .count-client, .count-order, .count-total{
     width: 100%;
+  }
+
+  .count-errors{
+    font-weight: bold;
+    color: var(--red);
+    background-color: rgba(237, 121, 39, 0.5);
+    width: 100%;
+    text-align: center;
   }
   
   .count-client{
@@ -170,6 +182,7 @@
     margin: 0rem .3rem;
     border-radius: 50%;
   }
+
   
   .count-client-btn > img:active{
     transform: scale(1.10);
@@ -184,7 +197,13 @@
   .count-input-client{
     border: none;
     outline: none;
-    /* background-color: blue; */
+    border-radius: 5px;
+    padding: 0rem .5rem;
+  }
+
+  .count-table{
+    border-radius: 5px;
+    margin: 0rem 1rem;
   }
 
   .count-order{
@@ -211,7 +230,7 @@
     background-color: var(--d-orange);
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius:  var(--border-all);
     cursor: pointer;
     transition: transform 200ms , box-shadow 200ms;
   }
@@ -223,6 +242,12 @@
   .count-total-sum{
     background-color: var(--orange);
     width: 100%;
+    font-weight: bold;
+    padding: .5rem 0rem;
+  }
+
+  .count-total-sum > h5,h2{
+    margin: .3rem auto;
   }
 
   .count-item{
@@ -265,8 +290,7 @@
 
   .quantity{
     display: grid;
-    grid-template-columns: .2fr .2fr .2fr .2fr .06fr  ;
-    /* grid-template-columns: .2fr .3fr .2fr .4fr .1fr  ; */
+    grid-template-columns: .2fr .2fr .2fr .2fr .06fr;
   }
 
   .separate{
@@ -290,7 +314,6 @@
     border-radius: 100%;
     margin: 0px;
 }
-
 
 /* width */
 ::-webkit-scrollbar {

@@ -9,18 +9,24 @@ const Count = ({ order, setOrder }) => {
   const { createOrder } = useContext(MenuContext);
   const [value, setValue] = useState();
   const [isToggleOn, setIsToggleOn] = useState(true);
-  const [tables, setTables] = useState([]);
+  const [tables, setTables] = useState(0);
+  const [errors, setErrors] = useState('');
 
   let total;
   let subtotal;
   let tip;
- 
+  const tableArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
   let orderDuplicates = new Set(order.map(JSON.stringify));
   order = Array.from(orderDuplicates).map(JSON.parse);
 
-  useEffect(() => {
-    setTables([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-  }, []);
+  const tablesSet = (table) => {
+    setTables(table);
+    console.log(table);
+    console.log(tables);
+  };
+
+  useEffect(() => {}, []);
 
   const removeItem = (id) => {
     const removedItem = order.filter((remove, i) => i !== id);
@@ -35,23 +41,37 @@ const Count = ({ order, setOrder }) => {
   };
 
   const handleClick = () => {
-    createOrder(value, order, tables);
-    setIsToggleOn(isToggleOn);
+    if(value === undefined){
+      setErrors('Ingresa Nombre del cliente')
+      return
+    }else if(tables === 0){
+      setErrors('Selecciona una Mesa')
+      return
+    }else if(order.length <= 0){
+      setErrors('Ingresa pedidos a la orden')
+      return
+    }
+    else{
+      createOrder(value, order, tables)
+    }
+    setErrors('')
+    // setIsToggleOn(!isToggleOn);
     setOrder([]);
     setValue("");
-    setIsToggleOn(order === [] ? !isToggleOn : isToggleOn);
+    setTables(0);
   };
 
   const addItemQty = (id) => {
-    if(order.some((item) => item.id === id)){
-        const idproduct= order.map((item) => item.id === id ? 
-        { ...item, count: item.count + 1} : item
-        )
-        setOrder(idproduct)
-      }else{setOrder([
-          ...order,
-          {id:id, item: order.item, price:order.price, count: 1}
-      ])
+    if (order.some((item) => item.id === id)) {
+      const idproduct = order.map((item) =>
+        item.id === id ? { ...item, count: item.count + 1 } : item
+      );
+      setOrder(idproduct);
+    } else {
+      setOrder([
+        ...order,
+        { id: id, item: order.item, price: order.price, count: 1 },
+      ]);
     }
   };
 
@@ -65,9 +85,6 @@ const Count = ({ order, setOrder }) => {
     });
     setOrder(rest);
   };
-
- 
-  console.log(order);
 
   return (
     <div className="count-container">
@@ -85,14 +102,14 @@ const Count = ({ order, setOrder }) => {
             handdleInput(e);
           }}
         />
-        <select>
-          {tables.map((table) => (
+        <select
+          className="count-table"
+          onChange={(e) => tablesSet(e.target.value)}
+        >
+          {tableArray.map((table) => (
             <option>{table}</option>
           ))}
         </select>
-        <button className="count-client-btn">
-          <img src={check} alt="check" />
-        </button>
       </div>
       <div className="count-order">
         {order.length > 0 ? (
@@ -127,18 +144,28 @@ const Count = ({ order, setOrder }) => {
         )}
       </div>
       <div className="count-total">
+        <div className="count-total-info">
+      <h4 className="count-errors">{errors}</h4>
+          <span>Cliente: {value} </span>
+          <span>Mesa: {tables <= 0 ? "" : tables} </span>
+          <span>
+            Propina: $
+            {
+              (tip =
+                (order.reduce(
+                  (previousValue, currentValue) =>
+                    previousValue + currentValue.price * currentValue.count,
+                  0
+                ) *
+                  10) /
+                100)
+            }
+          </span>
+        </div>
         <div className="count-total-sum">
-          <p>Cliente: {value} </p>
-          <h3>Tip: {
-              (tip = order.reduce(
-                (previousValue, currentValue) =>
-                  previousValue + currentValue.price * currentValue.count,
-                0
-              )*10/100)
-              }</h3>
-          <h3>
+          <h5>
             {" "}
-            <b>Subtotal</b> ${" "}
+            Subtotal ${" "}
             {
               (subtotal = order.reduce(
                 (previousValue, currentValue) =>
@@ -146,10 +173,8 @@ const Count = ({ order, setOrder }) => {
                 0
               ))
             }
-            ,00
-          </h3>
-          <h3>Total: {subtotal + tip}</h3>
-          {/* <p>Tip 10%: {(total*10/100)}</p> */}
+          </h5>
+          <h2>Total: $ {subtotal + tip}</h2>
         </div>
         <button
           className={
@@ -159,7 +184,8 @@ const Count = ({ order, setOrder }) => {
           }
           onClick={handleClick}
         >
-          {isToggleOn ? "Enviar a Cocina" : "Enviado"}
+          Enviar
+          {/* {order.length <= 0 ? "Enviar a Cocina" : "Enviado"} */}
         </button>
       </div>
     </div>

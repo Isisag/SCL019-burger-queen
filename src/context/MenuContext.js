@@ -22,7 +22,7 @@ const MenuContextProvider = ({ children }) => {
       items: items,
       table: table,
       date: Timestamp.fromDate(new Date()),
-      status: "cocina",
+      status: "Pendiente",
     });
     return orders
   };
@@ -34,7 +34,7 @@ const MenuContextProvider = ({ children }) => {
     return arr;
   };
 
-  const deleteOrder = id => deleteDoc(doc(db, 'orders', id))
+  const deleteOrder = (id) => deleteDoc(doc(db, 'orders', id))
 
   const updateOrder = async (id, status) => {
     const orderDoc = doc(db, "orders", id);

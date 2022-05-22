@@ -3,7 +3,7 @@ import { MenuContext } from "../context/MenuContext";
 import { db } from "../firebase/firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import CancelBtn from "./utilities/CancelBtn";
-import "./Orders.css";
+import  styles  from "./Orders.module.css";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -15,44 +15,57 @@ const Orders = () => {
     const getOrders = onSnapshot(q, (snapshot) =>
       setOrders(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
+    console.log(getOrders)
     return getOrders;
   }, []);
+     
+
+    console.log(orders)
 
   return (
-    <div className="orders-container">
-      <h1>Ordenes</h1>
-      <div className="order-container">
+    <div className={styles.ordersContainer}>
+      <h1 className={styles.ordersTitle}>Ordenes</h1>
+      <div className={styles.orderContainer}>
         {orders.length > 0 ? (
           orders.map((order) => {
             return (
-              <div className="order-item">
+              <div 
+              className={ order.status === 'Pendiente' ? styles.orderItem : styles.orderItemReady }
+               key={order.id}>
                 <button
-                  className="order-remove-btn"
+                  className={styles.orderRemoveBtn}
                   value={order.id}
-                  onClick={(e) => deleteOrder(e.target.value)}
+                  onClick={() => deleteOrder(order.id)}
                 >
                   <CancelBtn />
                 </button>
-                <p>Cliente {order.client}</p>
-                <p>Estado {order.status}</p>
-                <p>Mesa {order.table}</p>
-                <ul>
-                  {order.items.map((pedido) => {
-                    return (
-                      <div>
-                        {/* <input type="checkbox" name="" id="" /> */}
-                        <p>{pedido.count}</p>
-                        <p>{pedido.item}</p>
-                      </div>
-                    );
-                  })}
-                </ul>
-                <button
+                 <button
+                  className={order.status === 'Pendiente' ? styles.orderCheckBtn : styles.orderCheckBtnReady }
                   value={order.id}
                   onClick={(e) => updateOrder(e.target.value)}
                 >
-                  lista
+                 {order.status === 'Pendiente' ? 'Preparar' : 'Listo' }
                 </button>
+                <h2 className={order.status === 'Pendiente' ? styles.orderStatus : styles.orderStatusFalse}>{order.status}</h2>
+                <p className={styles.orderClientInfo}>Cliente</p>
+                <p className={styles.orderClientInfoValue}>{order.client}</p>
+                <h4 className={styles.orderClientInfo}>Mesa </h4>
+                <h4 className={styles.orderClientInfoValue}>{order.table}</h4>
+                <div className={styles.orderItemsContainer}>
+                <p className={styles.itemsTitle}>Items</p>
+                  {order.items.map((pedido, index) => {
+                    return (
+                      <div  key={index}>
+                        <div className={styles.orderItemsName}>
+                          <p>{pedido.count}</p>
+                          <p>{pedido.item}</p>
+                          <p>{pedido.protein}</p>
+                        </div>
+                        <hr className={styles.separate}/>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             );
           })
