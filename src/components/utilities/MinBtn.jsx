@@ -1,6 +1,5 @@
 import React from "react";
-import "./utilities.css"
-
+import "./utilities.css";
 
 const MinBtn = () => {
   return (

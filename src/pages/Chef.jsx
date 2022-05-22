@@ -1,14 +1,14 @@
-import React from 'react'
-import Orders from '../components/Orders'
-import BackBtn from '../components/utilities/BackBtn'
+import React from "react";
+import Orders from "../components/Orders";
+import BackBtn from "../components/utilities/BackBtn";
 
 const Chef = () => {
   return (
     <>
-    <BackBtn />
-    <Orders />
+      <BackBtn />
+      <Orders />
     </>
-  )
-}
+  );
+};
 
-export default Chef
+export default Chef;

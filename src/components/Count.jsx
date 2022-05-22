@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { MenuContext } from "../context/MenuContext";
 import "./Menu.css";
 import Quantity from "./Quantity";
-import check from "../assets/check.svg";
 import CancelBtn from "./utilities/CancelBtn";
 
 const Count = ({ order, setOrder }) => {
@@ -10,9 +9,8 @@ const Count = ({ order, setOrder }) => {
   const [value, setValue] = useState();
   const [isToggleOn, setIsToggleOn] = useState(true);
   const [tables, setTables] = useState(0);
-  const [errors, setErrors] = useState('');
+  const [errors, setErrors] = useState("");
 
-  let total;
   let subtotal;
   let tip;
   const tableArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -25,8 +23,6 @@ const Count = ({ order, setOrder }) => {
     console.log(table);
     console.log(tables);
   };
-
-  useEffect(() => {}, []);
 
   const removeItem = (id) => {
     const removedItem = order.filter((remove, i) => i !== id);
@@ -41,21 +37,19 @@ const Count = ({ order, setOrder }) => {
   };
 
   const handleClick = () => {
-    if(value === undefined){
-      setErrors('Ingresa Nombre del cliente')
-      return
-    }else if(tables === 0){
-      setErrors('Selecciona una Mesa')
-      return
-    }else if(order.length <= 0){
-      setErrors('Ingresa pedidos a la orden')
-      return
+    if (value === undefined) {
+      setErrors("Ingresa Nombre del cliente");
+      return;
+    } else if (tables === 0) {
+      setErrors("Selecciona una Mesa");
+      return;
+    } else if (order.length <= 0) {
+      setErrors("Ingresa pedidos a la orden");
+      return;
+    } else {
+      createOrder(value, order, tables);
     }
-    else{
-      createOrder(value, order, tables)
-    }
-    setErrors('')
-    // setIsToggleOn(!isToggleOn);
+    setErrors("");
     setOrder([]);
     setValue("");
     setTables(0);
@@ -145,7 +139,7 @@ const Count = ({ order, setOrder }) => {
       </div>
       <div className="count-total">
         <div className="count-total-info">
-      <h4 className="count-errors">{errors}</h4>
+          <h4 className="count-errors">{errors}</h4>
           <span>Cliente: {value} </span>
           <span>Mesa: {tables <= 0 ? "" : tables} </span>
           <span>
@@ -185,7 +179,6 @@ const Count = ({ order, setOrder }) => {
           onClick={handleClick}
         >
           Enviar
-          {/* {order.length <= 0 ? "Enviar a Cocina" : "Enviado"} */}
         </button>
       </div>
     </div>

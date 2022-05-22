@@ -7,10 +7,10 @@ import {
   Timestamp,
   getDocs,
   query,
-  orderBy, 
+  orderBy,
   deleteDoc,
   doc,
-  updateDoc
+  updateDoc,
 } from "firebase/firestore";
 
 export const MenuContext = createContext();
@@ -24,17 +24,22 @@ const MenuContextProvider = ({ children }) => {
       date: Timestamp.fromDate(new Date()),
       status: "Pendiente",
     });
-    return orders
+    return orders;
   };
 
   const getOrders = async () => {
-    const querySnapshot = await getDocs(query(collection(db, "orders")),orderBy("date", "desc"));
+    const querySnapshot = await getDocs(
+      query(collection(db, "orders")),
+      orderBy("date", "desc")
+    );
     const arr = [];
-    querySnapshot.forEach(order => arr.push(Object.assign(order.data(), { 'id': order.id })))
+    querySnapshot.forEach((order) =>
+      arr.push(Object.assign(order.data(), { id: order.id }))
+    );
     return arr;
   };
 
-  const deleteOrder = (id) => deleteDoc(doc(db, 'orders', id))
+  const deleteOrder = (id) => deleteDoc(doc(db, "orders", id));
 
   const updateOrder = async (id, status) => {
     const orderDoc = doc(db, "orders", id);
@@ -57,7 +62,16 @@ const MenuContextProvider = ({ children }) => {
 
   return (
     <MenuContext.Provider
-      value={{ breakfast, burgers, sideDish, drinks, createOrder, getOrders, deleteOrder, updateOrder }}
+      value={{
+        breakfast,
+        burgers,
+        sideDish,
+        drinks,
+        createOrder,
+        getOrders,
+        deleteOrder,
+        updateOrder,
+      }}
     >
       {children}
     </MenuContext.Provider>
