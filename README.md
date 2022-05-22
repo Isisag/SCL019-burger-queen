@@ -1,70 +1,63 @@
-# Burger Queen Order App
+# Burger Queen Order App 🍔
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://i.ibb.co/zn6QFfw/banner-Mesa-de-trabajo-4-8.png" width="800">
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+* [1. Definición del Proyecto](#1-preámbulo)
+* [2. ¡Usa Burger Queen App!](#2-despliegue)
+* [3. Funcionalidades](#3-funcionalidades)
+* [4. Tecnologías](#4-tecnologías)
+* [5. Prototipado](#5-prototipado)
 
-### `npm start`
+## 1. Definición del Proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Burger Queen Order App** se trata de una app de pedidos para un restaurante ficticio de hamburguesas. Sincroniza a través de Firebase la cocina con los meseros agilizando el proceso de toma de pedidos y despacho de los mismos. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2. ¡Realiza tu pedido en Burger Queen App!
 
-### `npm test`
+Puedes probar la app pinchando en el siguiente [🍔Enlace🍔](https://develop--isisag-burger-queen-app.netlify.app/)
+Es adaptable a tablets, pantallas táctiles y desktop.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![](https://i.ibb.co/y6RJKMM/interfaz1.png)
+![](https://i.ibb.co/7SgWnJv/interfaz2.png)
+![](https://i.ibb.co/47nkf5H/interfaz3.png)
 
-### `npm run build`
+## 3. Funcionalidades de la App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ - Responsive
+ - Sincronización en tiempo real 
+ - Menú lateral con categorías 
+ - Visualización sencilla y diseño intuitivo
+ - Cálculo de propina para mesero
+ - Nombre de cliente y de mesa
+ - Actualización de estado de pedido
+ - Eliminación de pedidos despachados
+ - Errores de utilización de manera gráfica
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 4. Tecnologías Usadas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Burger Queen App** fue desarrollada con las siguientes técnologías
 
-### `npm run eject`
+- React Js 
+- React Router
+- CSS
+- Firebase Cloud
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 5. Prototipado
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Antes de comenzar la etapa de desarrollo se realizó un protipo de alta fidelidad en **Figma** con el cual se logró tener una imagen clara del resultado final e interacciones de la app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+También se pensó en la elección de colores, tipografías y deficiones generales de la interfaz.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![](https://i.ibb.co/QkH632d/moadboard.png)
+![](https://i.ibb.co/jgb9QC7/prototipo.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Puedes ver el prototipo de **Burger Queen App** en el siguiente **[enlace](https://www.figma.com/proto/wnaGzvQIgfCycbHQaGkLzN/Burger-Queen-app?scaling=scale-down&page-id=0%3A1&node-id=1%3A2&starting-point-node-id=1%3A2)**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
