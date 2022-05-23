@@ -20,20 +20,15 @@ const Count = ({ order, setOrder }) => {
 
   const tablesSet = (table) => {
     setTables(table);
-    console.log(table);
-    console.log(tables);
   };
 
   const removeItem = (id) => {
     const removedItem = order.filter((remove, i) => i !== id);
-    console.log(id);
-    console.log(removedItem);
     setOrder(removedItem);
   };
 
   const handdleInput = (e) => {
     setValue(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleClick = () => {

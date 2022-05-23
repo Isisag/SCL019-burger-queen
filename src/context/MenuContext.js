@@ -45,7 +45,6 @@ const MenuContextProvider = ({ children }) => {
     const orderDoc = doc(db, "orders", id);
     const statusUpdate = { status: "Listo para servir" };
     await updateDoc(orderDoc, statusUpdate);
-    console.log(statusUpdate);
   };
 
   const [breakfast, setBreakfast] = useState([]);
