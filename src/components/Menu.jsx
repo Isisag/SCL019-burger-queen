@@ -14,6 +14,7 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
   const [data, setData] = useState();
   const [order, setOrder] = useState([]);
   const [toggleState, setToggleState] = useState(1);
+  
   const toggleTab = (index) => {
     setToggleState(index);
   };

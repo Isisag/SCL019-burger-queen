@@ -43,6 +43,7 @@ Es adaptable a tablets, pantallas táctiles y desktop.
 - React Router
 - CSS
 - Firebase Cloud
+- Netifly
 
 ## 5. Prototipado
 

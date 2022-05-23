@@ -16,7 +16,8 @@
   --title: "Rubik", sans-serif;
   --display: "Fredoka One";
   --border: 15px 15px 0px 0px;
-  --border-all: 10px;
+  --border-invert: 15px;
+  --border-all: 5px;
   --shadow: #a53c1aa9;
 }
 
@@ -54,13 +55,6 @@
   font-size: xx-large;
   text-decoration: none;
   margin: auto 2rem;
-  transition: transform 200ms, box-shadow 200ms;
-  box-shadow: var(--shadow) 4px 4px 0px;
-}
-
-.route:hover {
-  transform: translateY(4px) translateX(4px);
-  box-shadow: var(--d-green) 0px 0px 0px;
 }
 
 .welcome-menu {
@@ -87,4 +81,21 @@
 
 .title {
   text-align: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--d-yellow);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--d-orange);
+  border-radius: 5px;
 }

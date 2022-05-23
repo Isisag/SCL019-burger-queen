@@ -13,6 +13,11 @@
   transition: .2s ease-in-out;
 }
 
+.others{
+  fill: var(--red); 
+  transition: .2s ease-in-out;
+}
+
 .min-btn:active{
     fill: var(--d-orange);
 }
